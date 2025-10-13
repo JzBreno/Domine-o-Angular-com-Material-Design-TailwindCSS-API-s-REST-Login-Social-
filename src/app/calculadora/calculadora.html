@@ -7,7 +7,16 @@
             <label for="valor2">Valor 2</label>
             <input type="number" name="valor2" id="valor2" [(ngModel)]="valor2" required >
 
-            <button type="button" (click)="somar()">Somar</button>
+            <div class="btn-box">
+              <div>
+                <button type="button" (click)="somar()">Somar</button>
+                <button type="button" (click)="subtrair()">subtrair</button>
+              </div>
+              <div>
+                <button type="button" (click)="multiplicar()">multiplicar</button>
+                <button type="button" (click)="dividir()">dividir</button>
+              </div>
+            </div>
         </form>
 
         <div class="result_display">

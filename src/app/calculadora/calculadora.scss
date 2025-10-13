@@ -1,0 +1,85 @@
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculadora {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-box{
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  /* Sombra mais pronunciada para o card */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  width: 300px;
+  text-align: center;
+}
+
+h2{
+  margin-bottom: 30px;
+  color: #333;
+}
+
+label{
+  display: block;
+  margin: 15px 0 5px;
+  color: #555;
+  font-weight: bold;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 25px;
+  /* Borda preta para os inputs */
+  border: 1px solid #000;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+button[type="button"]{
+  margin-top: 45px;
+  margin-bottom: 25px;
+  width: 75%;
+  padding: 15px;
+  font-size: 17px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center;
+}
+
+button[type="button"]:hover{
+  background-color: #0056b3;
+}
+
+.result_display{
+  margin-top: 0;
+  padding-bottom: 5px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.button{
+  /* Estilos de .button foram movidos para button[type="button"] */
+}

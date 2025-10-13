@@ -14,6 +14,7 @@ export class Calculadora {
   valor1 = 0;
    valor2 = 0;
    resultado = 0;
+   varExemplo ?: number ;
 
    somar() {
      this.resultado = this.valor1 + this.valor2;

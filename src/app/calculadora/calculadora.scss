@@ -83,3 +83,9 @@ button[type="button"]:hover{
 .button{
   /* Estilos de .button foram movidos para button[type="button"] */
 }
+
+.btn-box{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}

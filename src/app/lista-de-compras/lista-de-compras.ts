@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {itemLista} from './itemLista';
-
+// para o uso de forms e @for @ if temos que importar FormsModule, CommonModule
 @Component({
   selector: 'app-lista-de-compras',
   imports: [
@@ -13,7 +13,7 @@ import {itemLista} from './itemLista';
 })
 
 export class ListaDeCompras {
-
+  // nossas variaveis, sao nomevariavel: tipoVariavel
   item: string = '';
   listaDeCompras: itemLista[] = [];
   listaDeRemovidos: itemLista[] = [];
@@ -24,7 +24,7 @@ export class ListaDeCompras {
      if(this.item === ''){
        return;
      }
-
+     //instanciado nosso objeto com a classe que criamos
      let novoItem = new itemLista();
      novoItem.nome = this.item;
      novoItem.validado = true;

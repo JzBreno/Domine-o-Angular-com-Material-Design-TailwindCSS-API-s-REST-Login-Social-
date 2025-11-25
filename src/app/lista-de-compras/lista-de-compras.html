@@ -1,21 +1,33 @@
 <div class="container">
+<!--  data biding -> e como se referencia variaveis do html para o ts-->
+<!--  () -> ele apenas faz o envio ao ts, sem receber do ts pro html:-->
+<!--  html -> ts-->
+<!--  [] -> ele apenas pega o valor da variavel no ts e envia ao html-->
+<!--  ts -> html-->
+<!--  [()] -> esse e o two-way-databing, ele faz a comunicao de mao dupla, se alterar no ts ele reconhece no html e viceversa-->
+<!--  html -> ts-->
+<!--  ts -> html-->
     <h1>Lista de Compras</h1>
+  <!--          esse databiding faz o submit(envio do formulario) ao ts, o ts apenas vai tratar os dados-->
+  <!--          o (ngSubmit) chama uma funcao adicionar item-->
+  <!--    o #frm usado para referenciar o nome do nosso form-->
     <form #frm="ngForm"
           class="add-item-form"
           (ngSubmit)="adicionarItem()">
-
+<!--      two-way-databiding [(ngModel)] que faz a dupla visibilidade na variavel chamando a variavel referenciada-->
       <input type="text"
              name="item"
              id="item"
              placeholder="Adicionar item"
              [(ngModel)]="item"
       />
-
+<!--      esse bortao do tipo submit, sempre envia o valor do form ao backend ts quando clicado, nesse caso ele envia os valores de "item"-->
       <button type="submit">Adicionar</button>
       <button type="button" (click)="mostrarItens()">Visualizar Lista</button>
-
     </form>
+<!--    essa tabela onde iremos mostrar nossas informacoes-->
     <table>
+<!--      cabecalho de tabela-->
         <thead>
             <tr>
                 <th>#</th>
@@ -24,13 +36,16 @@
                 <th></th>
             </tr>
         </thead>
+<!--      corpo da tabela-->
         <tbody>
+<!--          as formas de fazer o if, else e for(@empty) dita o bloco que sera realizado caso o for esteja vazio-->
           @if (mostrarLista) {
             @for (item of listaDeCompras; track $index){
               <tr>
                 <td>{{item.id}}</td>
                 <td><span [ngClass] = "{ 'item-riscado' : item.validado}">{{item.nome}}</span></td>
                 <td>
+<!--                  esse input checkbox faz o quadrado de check-->
                   <input type="checkbox"
                            (click)="riscarItem(item)"
                            [checked]="item.validado"/>
@@ -44,9 +59,11 @@
                   </svg>
                 </button></td>
               </tr>
+<!--              se a lista estiver vazia ele executa esse bloco de codigo-->
             } @empty {
               <tr colspan="3"> Nenhum Item Adicionado</tr>
             }
+<!--            esse e o else if comum -->
           } @else if (listaDeCompras.length == 0){
             <tr colspan="3"> Nenhum Item Adicionado</tr>
           }

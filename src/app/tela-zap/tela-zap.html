@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>Resultados</h2>
+
+  <div class="actions">
+    <button (click)="baixarPdf()" class="btn btn-success">Baixar PDF</button>
+  </div>
+
+  <div class="table-wrap">
+    <table class="results-table">
+      <thead>
+      <tr>
+        <th>Sítio</th>
+        <th>Data</th>
+        <!-- cabeçalhos dinâmicos -->
+        <th *ngFor="let col of columnKeys">{{ col }}</th>
+        <th *ngIf="showTotalColumn">Total</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let row of resultados; trackBy: trackByIndex">
+        <td>{{ row.sitio }}</td>
+        <td>{{ row.data }}</td>
+
+        <!-- acessa as colunas dinâmicas por chave (bracket notation) -->
+        <td *ngFor="let col of columnKeys">{{ row[col] }}</td>
+
+        <td *ngIf="showTotalColumn">{{ row.total }}</td>
+      </tr>
+      </tbody>
+
+      <tfoot>
+      <tr class="totals-row">
+        <td colspan="2">Total</td>
+        <td *ngFor="let col of columnKeys">{{ columnTotals[col] }}</td>
+        <td *ngIf="showTotalColumn">{{ totalOverall }}</td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

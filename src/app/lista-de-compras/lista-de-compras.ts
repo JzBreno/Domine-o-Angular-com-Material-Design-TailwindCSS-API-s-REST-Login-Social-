@@ -43,10 +43,15 @@ export class ListaDeCompras {
      console.log(this.mostrarLista)
    }
 
-   marcarDisponibilidade(item: itemLista) {
-     item.validado !=  item.validado;
-     return item;
-   }
+    riscarItem(itemN: itemLista) {
+     if (itemN.validado) {
+       itemN.validado = false;
+     }else{
+       itemN.validado = true;
+     }
+    }
+
+
 
    removerItem(index: number) {
 

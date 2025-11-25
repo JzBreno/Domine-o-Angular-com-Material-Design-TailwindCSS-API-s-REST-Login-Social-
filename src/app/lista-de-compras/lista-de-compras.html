@@ -3,14 +3,17 @@
     <form #frm="ngForm"
           class="add-item-form"
           (ngSubmit)="adicionarItem()">
+
       <input type="text"
              name="item"
              id="item"
              placeholder="Adicionar item"
              [(ngModel)]="item"
       />
+
       <button type="submit">Adicionar</button>
       <button type="button" (click)="mostrarItens()">Visualizar Lista</button>
+
     </form>
     <table>
         <thead>
@@ -26,8 +29,12 @@
             @for (item of listaDeCompras; track $index){
               <tr>
                 <td>{{item.id}}</td>
-                <td>{{item.nome}}</td>
-                <td><input type="checkbox" (click)="marcarDisponibilidade(item)"/></td>
+                <td><span [ngClass] = "{ 'item-riscado' : item.validado}">{{item.nome}}</span></td>
+                <td>
+                  <input type="checkbox"
+                           (click)="riscarItem(item)"
+                           [checked]="item.validado"/>
+                </td>
                 <td><button type="button" (click)="removerItem(listaDeCompras.indexOf(item))" style="background: none; border: none; cursor: pointer;">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="3 6 5 6 21 6"></polyline>
@@ -37,7 +44,11 @@
                   </svg>
                 </button></td>
               </tr>
+            } @empty {
+              <tr colspan="3"> Nenhum Item Adicionado</tr>
             }
+          } @else if (listaDeCompras.length == 0){
+            <tr colspan="3"> Nenhum Item Adicionado</tr>
           }
         </tbody>
     </table>
